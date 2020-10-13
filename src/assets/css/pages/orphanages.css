@@ -1,0 +1,77 @@
+.orphanages-container {
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+}
+.orphanages-container-aside {
+	position: relative;
+	background: linear-gradient(329.54deg, #29B6D1 0%, #00C7C7 100%);
+	padding: 15% 20%;
+	grid-column:1/4;
+}
+.orphanages-container-aside__mapTheme {
+	position: absolute;
+	top: 3%;
+	right: 5%;
+	cursor: pointer;
+}
+.orphanages-container-aside__mapTheme > svg {
+	transition: all 100ms;
+}
+.orphanages-container-aside__mapTheme:hover > svg {
+	transform: rotate(90deg);
+	transition: all 100ms;
+}
+.orphanages-container-aside__description {
+	margin: 30px 0;
+}
+.orphanages-container-aside__address {
+	position: absolute;
+	bottom: 10%;
+}
+.orphanages-container-aside__address > p:first-child {
+	font-weight: 700;
+}
+
+
+.orphanages-container-map {
+	position: relative;
+	grid-column: 4/13;
+}
+.orphanages-container-map .leaflet-right {
+	visibility: hidden;
+}
+.orphanages-container-map > .leaflet-container {
+	z-index: 5;
+}
+.orphanages-container-map__btn {
+	position: absolute;
+	bottom: 7%;
+	right: 5%;
+	width: 60px;
+	height: 60px;
+	border-radius: 20px;
+	background: #15C3D6;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.1);
+	z-index: 10;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all 100ms;
+}
+.orphanages-container-map__btn > svg {
+	transition: all 100ms;
+}
+.orphanages-container-map__btn:hover {
+	background: #17D6EB;
+	transform: scale(1.04);
+	box-shadow: 2px 2px 2px rgba(0,0,0,.2);
+	transition: all 100ms;
+}
+.orphanages-container-map__btn:hover > svg {
+	transform: rotate(90deg);
+	transition: all 100ms;
+}

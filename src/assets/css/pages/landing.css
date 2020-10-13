@@ -1,0 +1,80 @@
+.landing-container {
+	width: 100vw;
+	height: 100vh;
+	background: linear-gradient(329.54deg, #29B6D1 0%, #00C7C7 100%);
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+.landing-container-main {
+	position: relative;
+	width: 100%;
+	max-width: 1125px;
+	height: 576px;
+	padding: 40px;
+	background: url('../../images/Ilustra-landing.svg') no-repeat 80% center;
+	background-size: 40%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.landing-container-main-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.landing-container-main-header__address {
+	text-align: right;
+	font-size: 18px;
+}
+.landing-container-main-header__address > p:first-child {
+	font-weight: 700;
+}
+.landing-container-main-content {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+.landing-container-main-content__description {
+	width: 394px;
+}
+.landing-container-main-content__description > h2 {
+	font-size: 72px;
+	line-height: 1em;
+	margin-bottom: 20px;
+}
+.landing-container-main-content__description > p {
+	width: 250px;
+	font-size: 18px;
+}
+.landing-container-main-content__btn {
+	padding: 20px;
+	background: #FFD666;
+	border-radius: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: background 100ms;	
+}
+.landing-container-main-content__btn > svg {
+	fill: #8D734B;
+	transition: fill 100ms;	
+}
+.landing-container-main-content__btn:hover {
+	background: #15C3D6;
+	box-shadow: 1px 1px 2px rgba(0,0,0,.1);
+	transition: all 100ms;
+}
+.landing-container-main-content__btn:hover > svg {
+	fill: #96FEFF;
+	/* transform: translateX(12px); */
+	animation: arrowMove 500ms ease-in-out infinite;
+	transition: all 100ms;	
+}
+
+@keyframes arrowMove {
+	to { transform: translateX(2px); }
+}
+
