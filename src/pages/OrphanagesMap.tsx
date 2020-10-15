@@ -9,7 +9,7 @@ import mapMarker from '../assets/images/map-marker.svg';
 // styles
 import '../assets/css/pages/orphanages.css';
 
-function OrphanageMap() {
+function OrphanagesMap() {
 	const [ styleTheme, setStyleTheme ] = useState('light');
 	const [ fillSvg, setFillSvg ] = useState('#087e84');
 
@@ -23,10 +23,10 @@ function OrphanageMap() {
 			<aside className="orphanages-container-aside">
 
 				<div className="orphanages-container-aside__mapTheme" onClick={changeTheme} >
-					<FaSun size={20} fill={fillSvg} />
+					<FaSun size={24} fill={fillSvg} />
 				</div>
 
-				<img src={mapMarker} alt="icon map marker happy" />
+				<img className="orphanages-container-aside__icon" src={mapMarker} alt="icon map marker happy" />
 			
 				<div className="orphanages-container-aside__description">
 					<h2>Escolha um orfanato no mapa</h2>
@@ -58,4 +58,4 @@ function OrphanageMap() {
 
 
 
-export default OrphanageMap;
+export default OrphanagesMap;
