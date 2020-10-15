@@ -1,0 +1,199 @@
+.pageOrphanage {
+	width: 100vw;
+	background: #CEDEE5;
+}
+.pageOrphanage-aside {
+	position: fixed;
+	top: 0;
+	width: 100%;
+  padding: 10px 7%;
+  background: linear-gradient(329.54deg, #15B6D6 0%, #15D6D6 100%);
+
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-between;
+	align-items: center;
+	z-index: 99;
+}
+.pageOrphanage-aside__img {
+  width: 40px;
+}
+.pageOrphanage-aside__btn {
+  width: 50px;
+  height: 50px;
+
+  border: 0;
+
+  background: #12AFCB;
+  border-radius: 16px;
+
+  cursor: pointer;
+
+  transition: background-color 0.2s;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pageOrphanage-aside__btn:hover {
+  background: #17D6EB;
+}
+
+
+.pageOrphanage-main {
+	width: 100%;
+	padding: 85px 0;
+}
+.pageOrphanage-main-details {
+	/* width: 700px; */
+	width: 95%;
+
+  margin: 0 auto;
+
+  background: #FFFFFF;
+  border: 1px solid #D3E2E5;
+  border-radius: 20px;
+
+  overflow: hidden;
+}
+.pageOrphanage-main-details__imgMain {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+.pageOrphanage-main-details-images {
+	width: 100%;
+  display: grid;
+  grid-template-columns: repeat(6 ,1fr);
+  column-gap: 10px;
+	padding: 12px;
+	overflow-x: auto;
+}
+.pageOrphanage-main-details-images button {
+	border: 0;
+  background: none;
+	outline: none;
+	overflow: hidden;
+	
+	width: 100px;
+  height: 88px;
+  cursor: pointer;
+  border-radius: 20px;
+  
+  opacity: 0.6;
+}
+.pageOrphanage-main-details-images .active {
+  opacity: 1;
+}
+.pageOrphanage-main-details-images img {
+  width: 100%;
+  height: 88px;
+  object-fit: cover;
+}
+
+
+.pageOrphanage-main-details-content {
+	padding: 40px 10px;
+	text-align: center;
+}
+.pageOrphanage-main-details-content h1 {
+  color: #4D6F80;
+  font-size: 54px;
+  line-height: 54px;
+  margin-bottom: 8px;
+}
+.pageOrphanage-main-details-content p {
+  line-height: 28px;
+  color: #5C8599;
+  margin-top: 24px;
+}
+.pageOrphanage-main-details-content__map {
+	position: relative;
+  margin-top: 64px;
+  background: #E6F7FB;
+  border: 1px solid #B3DAE2;
+	border-radius: 20px;
+	z-index: 10;
+}
+.pageOrphanage-main-details-content__map footer {
+  padding: 20px 0;
+  text-align: center;
+}
+.pageOrphanage-main-details-content__map a {
+  line-height: 24px;
+  color: #0089A5;
+  text-decoration: none;
+}
+.pageOrphanage-main-details-content__map .leaflet-container {
+  border-bottom: 1px solid #DDE3F0;
+	border-radius: 20px;
+}
+.leaflet-right {
+	display: none;
+}
+.pageOrphanage-main-details-content hr {
+  width: 100%;
+  height: 1px;
+  border: 0;
+  background: #D3E2E6;
+  margin: 64px 0;
+}
+
+.pageOrphanage-main-details-content h2 {
+  font-size: 36px;
+  line-height: 46px;
+  color: #4D6F80;
+}
+.pageOrphanage-main-details-content-openDetails {
+  margin-top: 24px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
+}
+.pageOrphanage-main-details-content-openDetails div {
+  padding: 32px 24px;
+  border-radius: 20px;
+	line-height: 28px;
+	text-align: left;
+}
+.pageOrphanage-main-details-content-openDetails svg {
+  display: block;
+	margin-bottom: 20px;
+}
+.pageOrphanage-main-details-content-openDetails__hour {
+  background: linear-gradient(149.97deg, #E6F7FB 8.13%, #FFFFFF 92.67%);
+  border: 1px solid #B3DAE2;
+  color: #5C8599;
+}
+.pageOrphanage-main-details-content-openDetails__openOnWeekends {
+  background: linear-gradient(154.16deg, #EDFFF6 7.85%, #FFFFFF 91.03%);
+  border: 1px solid #A1E9C5;
+  color: #37C77F;
+}
+
+
+.pageOrphanage-main-details-content__contactBtn {
+  margin-top: 64px;
+
+  width: 100%;
+  height: 64px;
+  border: 0;
+  cursor: pointer;
+  background: #3CDC8C;
+  border-radius: 20px;
+  color: #FFFFFF;
+  font-weight: 800;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: background-color 0.2s;
+}
+.pageOrphanage-main-details-content__contactBtn svg {
+  margin-right: 16px;
+}
+.pageOrphanage-main-details-content__contactBtn:hover {
+  background: #36CF82;
+}
