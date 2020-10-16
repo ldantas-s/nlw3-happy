@@ -1,73 +1,37 @@
-#page-create-orphanage {
-  display: flex;
+.pageCreateOrphanage {
+	display: flex;
+	background: #EBF2F5;
 }
 
-#page-create-orphanage aside {
-  position: fixed;
-  height: 100%;
-  padding: 32px 24px;
-  background: linear-gradient(329.54deg, #15B6D6 0%, #15D6D6 100%);
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+.pageCreateOrphanage-main {
+	width: 95%;
+	margin: 20px auto;
 }
 
-#page-create-orphanage aside img {
-  width: 48px;
-}
-
-#page-create-orphanage aside footer a,
-#page-create-orphanage aside footer button {
-  width: 48px;
-  height: 48px;
-
-  border: 0;
-
-  background: #12AFCB;
-  border-radius: 16px;
-
-  cursor: pointer;
-
-  transition: background-color 0.2s;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#page-create-orphanage aside footer a:hover,
-#page-create-orphanage aside footer button:hover {
-  background: #17D6EB;
-}
-
-#page-create-orphanage main {
-  flex: 1;
-}
-
-form.create-orphanage-form {
-  width: 700px;
-  margin: 64px auto;
+.pageCreateOrphanage-main-form {
+	position: relative;
+  width: 100%;
+  margin: 64px auto 20px;
 
   background: #FFFFFF;
   border: 1px solid #D3E2E5;
   border-radius: 20px;
 
-  padding: 64px 80px;
+  padding: 40px 20px;
+	box-shadow: 2px 0 10px rgba(0,0,0,.1);
 
-  overflow: hidden;
+	overflow: hidden;
+	z-index: 10;
 }
 
-form.create-orphanage-form fieldset {
+.pageCreateOrphanage-main-form__fieldset {
   border: 0;
 }
-
-form.create-orphanage-form fieldset + fieldset {
+.pageCreateOrphanage-main-form__fieldset:nth-child(2) {
   margin-top: 80px;
 }
 
-form.create-orphanage-form fieldset legend {
+.pageCreateOrphanage-main-form__fieldset legend {
   width: 100%;
 
   font-size: 32px;
@@ -79,27 +43,23 @@ form.create-orphanage-form fieldset legend {
   margin-bottom: 40px;
   padding-bottom: 24px;
 }
-
-form.create-orphanage-form .input-block + .input-block {
+.pageCreateOrphanage-main-form-groupInput {
   margin-top: 24px;
 }
-
-form.create-orphanage-form .input-block label {
+.pageCreateOrphanage-main-form-groupInput label {
   display: flex;
   color: #8FA7B3;
   margin-bottom: 8px;
   line-height: 24px;
 }
-
-form.create-orphanage-form .input-block label span {
+.pageCreateOrphanage-main-form-groupInput span {
   font-size: 14px;
   color: #8FA7B3;
   margin-left: 24px;
   line-height: 24px;
 }
-
-form.create-orphanage-form .input-block input,
-form.create-orphanage-form .input-block textarea {
+.pageCreateOrphanage-main-form-groupInput input,
+.pageCreateOrphanage-main-form-groupInput textarea {
   width: 100%;
   background: #F5F8FA;
   border: 1px solid #D3E2E5;
@@ -107,58 +67,70 @@ form.create-orphanage-form .input-block textarea {
   outline: none;
   color: #5C8599;
 }
+/* 
+	! funcionalidade visual, colocar essa borda 
+  ! enquanto está com foco e se existir conteudo
+*/
+.pageCreateOrphanage-main-form-groupInput input:focus,
+.pageCreateOrphanage-main-form-groupInput textarea:focus {
+  border: 1px solid #A1E9C5;
 
-form.create-orphanage-form .input-block input {
+}
+.pageCreateOrphanage-main-form-groupInput input {
   height: 64px;
   padding: 0 16px;
 }
-
-form.create-orphanage-form .input-block textarea {
+.pageCreateOrphanage-main-form-groupInput textarea {
   min-height: 120px;
   max-height: 240px;
   resize: vertical;
   padding: 16px;
   line-height: 28px;
 }
-
-form.create-orphanage-form .input-block .new-image {
-  width: 100%;
+.pageCreateOrphanage-main-form-groupInput__newImg {
+  width: 64px;
   height: 64px;
   background: #F5F8FA;
   border: 1px dashed #96D2F0;
   border-radius: 20px;
-  cursor: pointer;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.pageCreateOrphanage-main-form-groupInput__inputImg {
+	display: none;
 }
 
-form.create-orphanage-form .input-block .button-select {
+
+.pageCreateOrphanage-main-form-groupInput-select {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-
-form.create-orphanage-form .input-block .button-select button {
+.pageCreateOrphanage-main-form-groupInput-select button {
   height: 64px;
   background: #F5F8FA;
   border: 1px solid #D3E2E5;
   color: #5C8599;
-  cursor: pointer;
+	cursor: pointer;
+	transition: all 200ms ease-in-out;
+	
 }
-
-form.create-orphanage-form .input-block .button-select button.active {
+.pageCreateOrphanage-main-form-groupInput-select .active,
+.pageCreateOrphanage-main-form-groupInput-select button:hover  {
   background: #EDFFF6;
   border: 1px solid #A1E9C5;
-  color: #37C77F;
+	color: #37C77F;
+	transition: all 200ms ease-in-out;
 }
-
-form.create-orphanage-form .input-block .button-select button:first-child {
+.pageCreateOrphanage-main-form-groupInput-select button:first-child {
   border-radius: 20px 0px 0px 20px;
 }
-
-form.create-orphanage-form .input-block .button-select button:last-child {
+.pageCreateOrphanage-main-form-groupInput-select button:last-child {
   border-radius: 0 20px 20px 0;
   border-left: 0;
 }
-
-form.create-orphanage-form button.confirm-button {
+.pageCreateOrphanage-main-form__btnConfirm {
   margin-top: 64px;
 
   width: 100%;
@@ -176,11 +148,21 @@ form.create-orphanage-form button.confirm-button {
 
   transition: background-color 0.2s;
 }
-
-form.create-orphanage-form button.confirm-button svg {
+.pageCreateOrphanage-main-form__btnConfirm svg {
   margin-right: 16px;
 }
-
-form.create-orphanage-form button.confirm-button:hover {
+.pageCreateOrphanage-main-form__btnConfirm:hover {
   background: #36CF82;
+}
+
+@media(min-width: 1024px) {
+	.pageCreateOrphanage-main {
+		width: 100%;
+		margin: 0;
+	}
+	.pageCreateOrphanage-main-form {
+		position: relative;
+		width: 704px;
+		margin: 40px auto;
+	}
 }

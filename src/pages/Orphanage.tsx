@@ -1,13 +1,16 @@
 import React from "react";
+// Icons
 import { FaWhatsapp } from "react-icons/fa";
-import { FiClock, FiInfo, FiArrowLeft } from "react-icons/fi";
+import { FiClock, FiInfo } from "react-icons/fi";
+// Map
 import { Map, Marker, TileLayer } from "react-leaflet";
-import { useHistory } from 'react-router-dom';
 import L from 'leaflet';
-
+// images
 import mapMarkerImg from '../assets/images/map-marker.svg';
-
+// style
 import '../assets/css/pages/orphanage.css';
+// Components
+import Aside from "../components/Aside";
 
 const happyMapIcon = L.icon({
   iconUrl: mapMarkerImg,
@@ -18,17 +21,10 @@ const happyMapIcon = L.icon({
 })
 
 export default function Orphanage() {
-  const { goBack } = useHistory();
 
   return (
     <div className="pageOrphanage">
-      <aside className="pageOrphanage-aside">
-        <img src={mapMarkerImg} alt="Happy" className="pageOrphanage-aside__img" />
-
-          <button className="pageOrphanage-aside__btn" type="button" onClick={goBack}>
-            <FiArrowLeft size={24} color="#FFF" />
-          </button>
-      </aside>
+      <Aside />
 
       <main className="pageOrphanage-main">
         <div className="pageOrphanage-main-details">
@@ -61,7 +57,7 @@ export default function Orphanage() {
 
             <div className="pageOrphanage-main-details-content__map">
               <Map 
-                center={[-27.2092052,-49.6401092]} 
+                center={[-7.2263534,-35.9187052]} 
                 zoom={16} 
                 style={{ width: '100%', height: 280 }}
                 dragging={false}
@@ -73,7 +69,7 @@ export default function Orphanage() {
                 <TileLayer 
                   url={`https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}
                 />
-                <Marker interactive={false} icon={happyMapIcon} position={[-27.2092052,-49.6401092]} />
+                <Marker interactive={false} icon={happyMapIcon} position={[-7.2263534,-35.9187052]} />
               </Map>
 
               <footer>

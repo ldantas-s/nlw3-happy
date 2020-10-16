@@ -1,13 +1,13 @@
 import React from "react";
 import { Map, Marker, TileLayer } from 'react-leaflet';
 import L from 'leaflet';
-import { useHistory } from "react-router-dom";
 
-import { FiArrowLeft, FiPlus } from "react-icons/fi";
+import { FiPlus } from "react-icons/fi";
 
 import mapMarkerImg from '../assets/images/map-marker.svg';
 
 import '../assets/css/pages/create-orphanage.css';
+import Aside from "../components/Aside";
 
 const happyMapIcon = L.icon({
   iconUrl: mapMarkerImg,
@@ -18,27 +18,18 @@ const happyMapIcon = L.icon({
 })
 
 export default function CreateOrphanage() {
-  const { goBack } = useHistory();
 
   return (
-    <div id="page-create-orphanage">
-      <aside>
-        <img src={mapMarkerImg} alt="Happy" />
+    <div className="pageCreateOrphanage">
+      <Aside />
 
-        <footer>
-          <button type="button" onClick={goBack}>
-            <FiArrowLeft size={24} color="#FFF" />
-          </button>
-        </footer>
-      </aside>
-
-      <main>
-        <form className="create-orphanage-form">
-          <fieldset>
+      <main className="pageCreateOrphanage-main">
+        <form className="pageCreateOrphanage-main-form">
+          <fieldset className="pageCreateOrphanage-main-form__fieldset">
             <legend>Dados</legend>
 
             <Map 
-              center={[-27.2092052,-49.6401092]} 
+              center={[-7.2263534,-35.9187052]} 
               style={{ width: '100%', height: 280 }}
               zoom={15}
             >
@@ -46,56 +37,57 @@ export default function CreateOrphanage() {
                 url={`https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}
               />
 
-              <Marker interactive={false} icon={happyMapIcon} position={[-27.2092052,-49.6401092]} />
+              <Marker interactive={false} icon={happyMapIcon} position={[-7.2263534,-35.9187052]} />
             </Map>
 
-            <div className="input-block">
+            <div className="pageCreateOrphanage-main-form-groupInput">
               <label htmlFor="name">Nome</label>
               <input id="name" />
             </div>
 
-            <div className="input-block">
+            <div className="pageCreateOrphanage-main-form-groupInput">
               <label htmlFor="about">Sobre <span>Máximo de 300 caracteres</span></label>
               <textarea id="name" maxLength={300} />
             </div>
 
-            <div className="input-block">
+            <div className="pageCreateOrphanage-main-form-groupInput">
               <label htmlFor="images">Fotos</label>
 
-              <div className="uploaded-image">
-
+              <div className="pageCreateOrphanage-main-form-groupInput-uploadedImg">
+								{/* aqui ficaram as images */}
               </div>
 
-              <button className="new-image">
-                <FiPlus size={24} color="#15b6d6" />
-              </button>
+              <label htmlFor="upImg" className="pageCreateOrphanage-main-form-groupInput__newImg">
+                <FiPlus size={24} stroke="#15b6d6" />
+              </label>
+							<input className="pageCreateOrphanage-main-form-groupInput__inputImg" type="file" name="images" id="upImg"/>
             </div>
           </fieldset>
 
-          <fieldset>
+          <fieldset className="pageCreateOrphanage-main-form__fieldset">
             <legend>Visitação</legend>
 
-            <div className="input-block">
+            <div className="pageCreateOrphanage-main-form-groupInput">
               <label htmlFor="instructions">Instruções</label>
               <textarea id="instructions" />
             </div>
 
-            <div className="input-block">
-              <label htmlFor="opening_hours">Nome</label>
+            <div className="pageCreateOrphanage-main-form-groupInput">
+              <label htmlFor="opening_hours">Horário das visitas</label>
               <input id="opening_hours" />
             </div>
 
-            <div className="input-block">
+            <div className="pageCreateOrphanage-main-form-groupInput">
               <label htmlFor="open_on_weekends">Atende fim de semana</label>
 
-              <div className="button-select">
+              <div className="pageCreateOrphanage-main-form-groupInput-select">
                 <button type="button" className="active">Sim</button>
                 <button type="button">Não</button>
               </div>
             </div>
           </fieldset>
 
-          <button className="confirm-button" type="submit">
+          <button className="pageCreateOrphanage-main-form__btnConfirm" type="submit">
             Confirmar
           </button>
         </form>
