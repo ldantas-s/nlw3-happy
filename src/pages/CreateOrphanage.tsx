@@ -1,27 +1,31 @@
 import React from "react";
 import { Map, Marker, TileLayer } from 'react-leaflet';
-import L from 'leaflet';
-
+import Leaflet from 'leaflet'
+// Icons
 import { FiPlus } from "react-icons/fi";
-
+// styles
+import '../assets/css/pages/create-orphanage.css';
+// components
+import Sidebar from "../components/Sidebar";
+// import happyMapIcon from "../utils/happyMapIcon";
+// images
 import mapMarkerImg from '../assets/images/map-marker.svg';
 
-import '../assets/css/pages/create-orphanage.css';
-import Aside from "../components/Aside";
 
-const happyMapIcon = L.icon({
-  iconUrl: mapMarkerImg,
 
-  iconSize: [58, 68],
-  iconAnchor: [29, 68],
-  popupAnchor: [0, -60]
-})
+const happyMapIcon = Leaflet.icon({
+	iconUrl: mapMarkerImg,
+
+	iconSize: [58, 68],
+	iconAnchor: [29, 68],
+	popupAnchor: [0, -60]
+});
 
 export default function CreateOrphanage() {
 
   return (
     <div className="pageCreateOrphanage">
-      <Aside />
+      <Sidebar />
 
       <main className="pageCreateOrphanage-main">
         <form className="pageCreateOrphanage-main-form">

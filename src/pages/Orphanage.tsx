@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from 'react-router-dom';
 // Icons
 import { FaWhatsapp } from "react-icons/fa";
 import { FiClock, FiInfo } from "react-icons/fi";
@@ -10,7 +11,7 @@ import mapMarkerImg from '../assets/images/map-marker.svg';
 // style
 import '../assets/css/pages/orphanage.css';
 // Components
-import Aside from "../components/Aside";
+import Sidebar from "../components/Sidebar";
 
 const happyMapIcon = L.icon({
   iconUrl: mapMarkerImg,
@@ -20,11 +21,46 @@ const happyMapIcon = L.icon({
   popupAnchor: [0, -60]
 })
 
+interface Orphanage {
+	id: number;
+	longitude: number;
+	latitude: number;
+	name: string;
+}
+
+interface OrphanageParams {
+	id: string;
+}
+
 export default function Orphanage() {
+	const { id } = useParams<OrphanageParams>(); 
+
+	
+	const [ orphanages, setOrphanages ] = useState<Orphanage[]>([
+		{
+			id: 1,
+			latitude: -7.2318643,
+			longitude: -35.9020012,
+			name: 'Casa da Criança Dr João Moura',
+		},
+		{
+			id: 2,
+			latitude: -7.2252694,
+			longitude: -35.895775,
+			name: 'Pastoral da Criança',
+		},
+	]);
+	const [ orphanage, setOrphanage ] = useState<Orphanage>({
+		id: 1,
+		longitude: -7.2318643,
+		latitude: -7.2318643,
+		name: 'Casa da Criança Dr João Moura',
+	});
+
 
   return (
     <div className="pageOrphanage">
-      <Aside />
+      <Sidebar />
 
       <main className="pageOrphanage-main">
         <div className="pageOrphanage-main-details">
@@ -46,13 +82,13 @@ export default function Orphanage() {
             <button type="button">
               <img src="https://www.gcd.com.br/wp-content/uploads/2020/08/safe_image.jpg" alt="Lar das meninas" />
             </button>
-            <button type="button">
+            {/* <button type="button">
               <img src="https://www.gcd.com.br/wp-content/uploads/2020/08/safe_image.jpg" alt="Lar das meninas" />
-            </button>
+            </button> */}
           </div>
           
           <div className="pageOrphanage-main-details-content">
-            <h1>Lar das meninas</h1>
+            <h1>{orphanage.name}</h1>
             <p>Presta assistência a crianças de 06 a 15 anos que se encontre em situação de risco e/ou vulnerabilidade social.</p>
 
             <div className="pageOrphanage-main-details-content__map">
@@ -73,7 +109,7 @@ export default function Orphanage() {
               </Map>
 
               <footer>
-                <a href="/">Ver rotas no Google Maps</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=47.5951518,-122.3316393">Ver rotas no Google Maps</a>
               </footer>
             </div>
 

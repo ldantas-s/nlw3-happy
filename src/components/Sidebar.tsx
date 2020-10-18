@@ -9,7 +9,7 @@ import mapMarkerImg from '../assets/images/map-marker.svg';
 
 
 
-function Aside() {
+function Sidebar() {
   const { goBack } = useHistory();
 
 	return(
@@ -24,4 +24,4 @@ function Aside() {
 }
 
 
-export default Aside;
+export default Sidebar;
