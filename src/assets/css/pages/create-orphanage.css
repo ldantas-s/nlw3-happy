@@ -71,8 +71,8 @@
 	! funcionalidade visual, colocar essa borda 
   ! enquanto está com foco e se existir conteudo
 */
-.pageCreateOrphanage-main-form-groupInput input:focus,
-.pageCreateOrphanage-main-form-groupInput textarea:focus {
+.pageCreateOrphanage-main-form-groupInput input:valid,
+.pageCreateOrphanage-main-form-groupInput textarea:valid {
   border: 1px solid #A1E9C5;
 
 }
@@ -87,7 +87,8 @@
   padding: 16px;
   line-height: 28px;
 }
-.pageCreateOrphanage-main-form-groupInput__newImg {
+.pageCreateOrphanage-main-form-groupInput__newImg,
+.pageCreateOrphanage-main-form-groupInput-uploadedImg__img {
   width: 64px;
   height: 64px;
   background: #F5F8FA;
@@ -97,11 +98,17 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	overflow: hidden;
+	object-fit: contain;
 }
 .pageCreateOrphanage-main-form-groupInput__inputImg {
 	display: none;
 }
-
+.pageCreateOrphanage-main-form-groupInput-uploadedImg {
+	display: grid;
+	grid-template-columns: repeat(8, 1fr);
+	grid-gap: 5px;
+}
 
 .pageCreateOrphanage-main-form-groupInput-select {
   display: grid;
@@ -116,11 +123,18 @@
 	transition: all 200ms ease-in-out;
 	
 }
-.pageCreateOrphanage-main-form-groupInput-select .active,
-.pageCreateOrphanage-main-form-groupInput-select button:hover  {
-  background: #EDFFF6;
-  border: 1px solid #A1E9C5;
-	color: #37C77F;
+.pageCreateOrphanage-main-form-groupInput-select .active--openOnWeekends,
+.pageCreateOrphanage-main-form-groupInput-select button:nth-child(1):hover {
+	background: linear-gradient(154.16deg, #EDFFF6 7.85%, #FFFFFF 91.03%);
+	border: 1px solid #A1E9C5;
+  color: #37C77F;
+	transition: all 200ms ease-in-out;
+}
+.pageCreateOrphanage-main-form-groupInput-select .active--NoOpenOnWeekends,
+.pageCreateOrphanage-main-form-groupInput-select button:nth-child(2):hover {
+	background: linear-gradient(154.16deg, #FCF0F4 7.85%, #FFFFFF 91.03%);
+	border: 1px solid #FFBCD4;
+	color: #FF669D;
 	transition: all 200ms ease-in-out;
 }
 .pageCreateOrphanage-main-form-groupInput-select button:first-child {

@@ -5,23 +5,14 @@ import { FaWhatsapp } from "react-icons/fa";
 import { FiClock, FiInfo } from "react-icons/fi";
 // Map
 import { Map, Marker, TileLayer } from "react-leaflet";
-import L from 'leaflet';
-// images
-import mapMarkerImg from '../assets/images/map-marker.svg';
 // style
 import '../assets/css/pages/orphanage.css';
 // Components
 import Sidebar from "../components/Sidebar";
 // api
 import api from '../services/api';
-
-const happyMapIcon = L.icon({
-  iconUrl: mapMarkerImg,
-
-  iconSize: [58, 68],
-  iconAnchor: [29, 68],
-  popupAnchor: [0, -60]
-})
+// Map icon
+import happyMapIcon from '../utils/happyMapIcon';
 
 interface Orphanage {
 	id: number;
@@ -50,7 +41,6 @@ export default function Orphanage() {
 
 	useEffect(() => {
 		api.get(`orphanages/${id}`).then(response => {
-			console.log(response.data)
 			setOrphanage(response.data.orphanage);
 		});
 	}, [id]);

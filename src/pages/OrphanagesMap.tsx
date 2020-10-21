@@ -3,21 +3,16 @@ import { Link } from 'react-router-dom';
 import { FaPlus, FaSun, FaArrowRight } from 'react-icons/fa';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 
-import Leaflet from 'leaflet';
 // images
 import mapMarker from '../assets/images/map-marker.svg';
 // styles
 import '../assets/css/pages/orphanages.css';
 // api
 import api from '../services/api';
+// Map Icon
+import happyMapIcon from '../utils/happyMapIcon';
 
 
-const mapIcon = Leaflet.icon({
-	iconUrl: mapMarker,
-	iconSize: [38, 95],
-	iconAnchor: [19, 94],
-	popupAnchor: [150, -13]
-});
 
 interface Orphanage {
 	id: number;
@@ -79,10 +74,10 @@ function OrphanagesMap() {
 						return (
 							<Marker
 								key={orphanage.id}
-								icon={mapIcon}
+								icon={happyMapIcon}
 								position={[orphanage.latitude, orphanage.longitude]}
 							>
-								<Popup closeButton={false} minWidth={170} minHeight={64} className="marker-popup" >
+								<Popup closeButton={false} minWidth={170} minHeight={64} >
 									{orphanage.name}
 									<Link to={`/orphanage/${orphanage.id}`} className="marker-popup__btn">
 										<FaArrowRight />
