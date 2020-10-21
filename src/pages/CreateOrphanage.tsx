@@ -1,19 +1,23 @@
 import React, { FormEvent, useState, ChangeEvent } from "react";
 import { Map, Marker, TileLayer } from 'react-leaflet';
 import { LeafletMouseEvent } from 'leaflet';
+import { useHistory } from "react-router-dom";
 // Icons
 import { FiPlus } from "react-icons/fi";
 // styles
 import '../assets/css/pages/create-orphanage.css';
 // components
 import Sidebar from "../components/Sidebar";
+// utils
 import happyMapIcon from "../utils/happyMapIcon";
+//servies
+import api from "../services/api";
 
 
 export default function CreateOrphanage() {
 
-	
-	const [ imagesSelected, setImagesSelected ] = useState<File[]>([]);
+	const hisotry = useHistory();
+	const [ imagesSelected, setImagesSelected ] = useState<File[]>();
 	const [ imagesPreview, setImagesPreview ] = useState<string[]>([]);
 	const [ infoOrphanage, setInfoOrphanage ] = useState({
 		latitude: 0,
@@ -40,20 +44,40 @@ export default function CreateOrphanage() {
 	function handleSelectImages(event: ChangeEvent<HTMLInputElement>) {
 		if (!event.target.files) return;
 		
-		const imagesSelectedPreview = Array.from(event.target.files);
+		const images = Array.from(event.target.files);
 
-		setImagesSelected(imagesSelectedPreview);
+		setImagesSelected(images);
 
-		setImagesPreview(imagesSelectedPreview.map(image => {
+		setImagesPreview(images.map(image => {
 			return URL.createObjectURL(image);
-		}))
+		}));
 	}
 	
 	function handleSubmit(event: FormEvent) {
 		event.preventDefault();
 
-		console.log(infoOrphanage);
 
+		const data = new FormData();
+
+		data.append('name', infoOrphanage.name);
+		data.append('about', infoOrphanage.about);
+		data.append('phone', infoOrphanage.phone);
+		data.append('latitude', String(infoOrphanage.latitude));
+		data.append('longitude', String(infoOrphanage.longitude));
+		data.append('instructions', infoOrphanage.instructions);
+		data.append('opening_hours', infoOrphanage.opening_hours);
+		data.append('open_on_weekends', String(infoOrphanage.open_on_weekends));
+
+		imagesSelected?.map(image => {
+			data.append('images', image);
+		});
+
+
+		api.post('orphanages', data)
+			.then(response => {
+				hisotry.push('/orphanages');
+			})
+			.catch(err => console.error('Front-end ERROR:', err));
 	}
 
   return (
@@ -74,8 +98,8 @@ export default function CreateOrphanage() {
               <TileLayer 
                 url={`https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}
               />
-							{infoOrphanage.latitude !== 0 ? 
-              	<Marker interactive={false} icon={happyMapIcon} position={[infoOrphanage.latitude,infoOrphanage.longitude]} />: null
+							{infoOrphanage.latitude !== 0 &&
+              	<Marker interactive={false} icon={happyMapIcon} position={[infoOrphanage.latitude,infoOrphanage.longitude]} />
 							}
             </Map>
 
